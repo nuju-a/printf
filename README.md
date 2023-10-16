@@ -1,3 +1,3 @@
 ****** Welcome *******
 
-This is a printf project.
+This is a joint printf project.
