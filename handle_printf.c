@@ -11,20 +11,13 @@ int handle_printf(convert_t *identifier, va_list list)
 	switch (identifier->specifier)
 	{
 		case 'c':
-			print_char(list, int);
+			print_char(list);
 			break;
 		case 's':
-			print_string(args, (char *));
+			print_string(list);
 			break;
 		case '%':
-			print_percent();
-			break;
-		case 'i':
-			print_int(args, int);
-			break;
-		default:
-			if (identifier == NULL || identifier == '\0' || identifier == ' ')
-				return (NULL);
+			print_percent(list);
 			break;
 	}
 

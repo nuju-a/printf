@@ -6,12 +6,13 @@
  *Return: the number  of characters printed.
  */
 
-int print_percent(void)
+int print_percent(va_list args)
 {
-	int counter;
+	int count = 0;
 
+	(void)args;
 	write(1, "%", 1);
-	counter++;
+	count++;
 
-	return (counter);
+	return (count);
 }

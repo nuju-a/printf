@@ -10,7 +10,7 @@
 int print_string(va_list args)
 {
 	char *str;
-	int counter;
+	int count;
 
 	str = va_arg(args, char *);
 
@@ -19,7 +19,7 @@ int print_string(va_list args)
 		return (write(1, "(nil)", 5));
 	}
 
-	counter = 0;
+	count = 0;
 	while (*str)
 	{
 		write(1, str, 1);

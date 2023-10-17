@@ -8,11 +8,11 @@
 
 int print_char(va_list args)
 {
-	int counter;
+	int count;
 	char c;
 
-	counter = 0;
-	c = va_arg(ag, int);
+	count = 0;
+	c = va_arg(args, int);
 	write(1, &c, 1);
 	count++;
 
