@@ -9,15 +9,13 @@
 
 int _printf(const char *format, ...)
 {
-	va_list ag;
+	va_list args;
 	int i, count;
-	char *str;
-	char c;
 
 	if (format == NULL)
-		return (1);
+		return (write(1, "(nil)", 1));
 
-	va_start(ag, format);
+	va_start(args, format);
 
 	count = 0;
 	for (i = 0; format[i]; i++)
@@ -28,26 +26,11 @@ int _printf(const char *format, ...)
 			count++;
 		}
 		else
-		{
+		{ 
 			i++;
 		}
 	}
 
-	va_end(ag);
+	va_end(args);
 	return (count);
-}
-
-int main(void)
-{
-	int str_count;
-
-	_printf("Orizon\n");
-	_printf("c\n", 'v');
-	str_count = _printf("s\n", "String");
-	_printf("%%\n", '%');
-
-	printf("%d\n", str_count);
-
-
-	return (0);
 }
