@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int i, count;
 
 	if (format == NULL)
-		return (write(1, "(nil)", 1));
+		return (write(1, "(nil)", 5));
 
 	va_start(args, format);
 
@@ -27,8 +27,14 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			handle_printf(identifer, *specifier);
-			i++;
+			convert_t identifier[] = {
+				{'c', print_char},
+				{'s', print_string},
+				{'%', print_percent}
+				{'\0', NULL}
+			};
+			handle_printf(&identifer[count], args);
+			count++;
 		}
 	}
 

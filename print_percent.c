@@ -7,12 +7,9 @@
  * Return: the number  of characters printed.
  */
 
-int print_percent(va_list args, char *s)
+int print_percent(void)
 {
 	int counter;
-
-	void(s);
-	void(args);
 	
 	write(1, "%", 1);
 	counter++;
