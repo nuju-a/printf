@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ag;
-	int i, j, count;
+	int i, count;
 	char *str;
 	char c;
 
@@ -31,15 +31,15 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == '\0')
-			break;
-	
+				break;
+
 			if (format[i] == 's')
 			{
 				str = va_arg(ag, char *);
-				j = 0;
-				while (str[j])
+				while (*str)
 				{
-					write(1, &str[j], 1);
+					write(1, str, 1);
+					str++;
 					count++;
 				}
 			}
