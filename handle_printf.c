@@ -2,18 +2,11 @@
 /**
   *handle_printf - function prints an argument based on its type
   *@specifier: the format strcut to print the arguments
-  *@buffer: buffer array to handle print
   *@list: list of arguments to be printed
-  *@flags: flags specificstion
-  *@width: width specificer to get active width
-  *@precision: precision specification
-  *@size: size specifier
   *
   *Return: 1 or 2;
   */
-int handle_printf(const char *specifier, va_list list,
-		char buffer[], int flags, int width,
-		int precision, int size)
+int handle_printf(const char *specifier, va_list list)
 {
 	int i;
 
@@ -32,7 +25,7 @@ int handle_printf(const char *specifier, va_list list,
 		{'\0', NULL}
 	};
 
-	for (i = 0; format[i].func; i++)
+	for (i = 0; format[i].specifier; i++)
 	{
 		if (format[i].specifier == *specifier)
 			return (format[i].func);
