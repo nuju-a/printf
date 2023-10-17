@@ -4,31 +4,22 @@
   *@specifier: the format strcut to print the arguments
   *@list: list of arguments to be printed
   *
-  *Return: 1 or 2;
+  *Return: 0 or 1;
   */
-int handle_printf(const char *specifier, va_list list)
+int handle_printf(convert_t *identifier, va_list list)
 {
-	int i;
-
-	convert_t identifer[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'i', print_int},
-		{'d', print_int},
-		{'b', print_binary},
-		{'u', print_unsigned},
-		{'o', print_octal},
-		{'x', print_hexidecimal},
-		{'X', print_hexa_upper},
-		{'p', print_pointer},
-		{'\0', NULL}
-	};
-
-	for (i = 0; identifer[i].specifier; i++)
+	switch (identifier->specifier)
 	{
-		if (identifer[i].specifier == *specifier)
-			return (identifer[i].func);
+		case 'c':
+			print_char(args, (char *)s);
+			break;
+		case 's':
+			print_string(args, (char *)s);
+			break;
+		case '%':
+			print_percent(args, (char *)s);
+			break;
 	}
-	return (NULL);
+
+	return (0);
 }

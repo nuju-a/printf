@@ -16,12 +16,11 @@
 typedef struct convert
 {
 	char specifier;
-	int (*func)(va_list, char*);
 } convert_t;
 
 /*function*/
 int _printf(const char *format, ...);
-int handle_printf(const char *specifier, va_list list);
+int handle_printf(convert_t *identifier, va_list list);
 
 /*function for format specifiers*/
 /*string and characters*/
