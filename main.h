@@ -32,4 +32,5 @@ int print_percent(va_list args, char*);
 int print_int(va_list args, char buffer[], int flags,
 		int width, int precision, int size);
 int print_binary(va_list args, char*);
+
 #endif /*MAIN_H*/
