@@ -26,7 +26,8 @@ int _printf(const char *format, ...)
 			count++;
 		}
 		else
-		{ 
+		{
+			handle_printf(identifer, *specifier);
 			i++;
 		}
 	}
