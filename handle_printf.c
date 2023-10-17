@@ -2,26 +2,36 @@
 
 /**
  * handle_printf - function prints an argument based on its typ
- * @identifier: the format strcut to print the arguments
- * @list: list of arguments to be printed
- *
- * Return: 0 or 1;
+ * @count: the content length.
+ * @format: format of the functions.
+ * @args: the variaadic list name.
  */
 
-int handle_printf(convert_t *identifier, va_list list)
+void handle_printf(int *count, char *format, va_list args)
 {
-	switch (identifier->specifier)
-	{
-		case 'c':
-			print_char(list);
-			break;
-		case 's':
-			print_string(list);
-			break;
-		case '%':
-			print_percent(list);
-			break;
-	}
+	char *str = format;
+	int i = 0;
 
-	return (0);
+	convert_t identifier[5] = {
+		{'c', print_char}, {'s', print_string}, {'d', print_int},
+		{'i', print_int}, {'u',  print_int}};
+
+	if (*str == 'c' || *str == 's' || *str == 'd' || *str == 'i' || *str == 'u')
+	{
+		for (i = 0; i < 5; i++)
+		{
+			if (identifier[i].specifier == *str)
+				*count += identifier[i].conversion_func(args, format);
+		}
+	}
+	else if (*str == '%')
+	{
+		format++;
+	}
+	else
+	{
+		write(1, "%", 1);
+		write(1, format, 1);
+		*count += 2;
+	}
 }

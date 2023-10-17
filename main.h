@@ -16,18 +16,22 @@
   */
 typedef struct convert
 {
-	char specifier;
-	int (*conversion_func)(va_list);
+	const char specifier;
+	int (*conversion_func)(va_list, char *);
 } convert_t;
 
 /*function*/
 int _printf(const char *format, ...);
-int handle_printf(convert_t *identifier, va_list list);
+void handle_printf(int *, char *, va_list);
 
 /*function for format specifiers*/
 /*string and characters*/
-int print_char(va_list args);
-int print_string(va_list args);
+int print_char(va_list args, char *);
+int print_string(va_list args, char *);
 int print_percent(va_list args);
+
+int print_int(va_list args, char *);
+void change_neg(unsigned int *pNum, int num);
+void print_buffer(char buff[11], int index, int *count);
 
 #endif /*MAIN_H*/

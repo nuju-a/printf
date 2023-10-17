@@ -9,31 +9,31 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i, count;
+	int count;
 
-	if (format == NULL)
-		return (write(1, "(nil)", 5));
+	if ((format == NULL) || (format[0] == '%' && format[1] == '\0')
+			|| (format[0] == '%' && format[1] == ' ' && !format[2]))
+		return (-1);
 
 	va_start(args, format);
-
 	count = 0;
-	for (i = 0; format[i]; i++)
+	while (*format)
 	{
-		if (format[i] != '%')
+		if (*format == '%')
 		{
-			write(1, &format[i], 1);
-			count++;
+			format++;
+			if  (*format == '%')
+			{
+				write(1, "%", 1), count++;
+			}
+			else
+				handle_printf(&count, (char *)format, args);
+			format++;
 		}
 		else
 		{
-			convert_t identifier[] = {
-				{'c', print_char},
-				{'s', print_string},
-				{'%', print_percent},
-				{'\0', NULL}
-			};
-			handle_printf(identifier, args);
-			i++;
+			write(1, format, 1);
+			count++, format++;
 		}
 	}
 
