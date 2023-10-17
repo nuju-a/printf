@@ -17,7 +17,7 @@ int print_string(va_list args, char *s)
 
 	if (str == NULL)
 	{
-		return (write(1, "(nil)", 5));
+		return (write(1, "(null)", 6));
 	}
 
 	count = 0;
