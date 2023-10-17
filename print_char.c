@@ -3,7 +3,6 @@
 /**
  * print_char - Prints a character.
  * @args: variadic arguments.
- * @s: The string the check for specifier for.
  * Return: the number of character printed.
  */
 

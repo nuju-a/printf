@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_string - Print the string and  count it.
- * @args: The name of the variadic list.
- * @s: the format string.
- * Return: the number  of characters printed.
+ *print_string - Print the string and  count it.
+ *@args: The name of the variadic listi.
+ *
+ *Return: the number  of characters printed.
  */
 
 int print_string(va_list args)
