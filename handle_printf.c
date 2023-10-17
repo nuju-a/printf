@@ -10,7 +10,7 @@ int handle_printf(const char *specifier, va_list list)
 {
 	int i;
 
-	convert_t format[] = {
+	convert_t identifer[] = {
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
@@ -25,10 +25,10 @@ int handle_printf(const char *specifier, va_list list)
 		{'\0', NULL}
 	};
 
-	for (i = 0; format[i].specifier; i++)
+	for (i = 0; identifer[i].specifier; i++)
 	{
-		if (format[i].specifier == *specifier)
-			return (format[i].func);
+		if (identifer[i].specifier == *specifier)
+			return (identifer[i].func);
 	}
 	return (NULL);
 }
