@@ -11,13 +11,13 @@ int handle_printf(convert_t *identifier, va_list list)
 	switch (identifier->specifier)
 	{
 		case 'c':
-			print_char(args, (char *)s);
+			print_char(list, int);
 			break;
 		case 's':
-			print_string(args, (char *)s);
+			print_string(args, (char *));
 			break;
 		case '%':
-			print_percent(args, (char *)s);
+			print_percent();
 			break;
 	}
 
