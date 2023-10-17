@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- *print_percent - Print the sign % to the terminal.
+ * print_percent - Print the sign % to the terminal
+ * @args: args not needed tho.
  *
- *Return: the number  of characters printed.
+ * Return: the number  of characters printed.
  */
 
 int print_percent(va_list args)
