@@ -24,11 +24,11 @@ int handle_printf(convert_t *identifier, va_list list);
 
 /*function for format specifiers*/
 /*string and characters*/
-int print_char(va_list args);
-int print_string(va_list args);
+int print_char(va_list args)(void);
+int print_string(va_list args)(void);
 int print_percent(void);
 /*numbers*/
-int print_int(va_list args, char*);
-int print_binary(va_list args, char*);
+int print_int(va_list args)(void);
+int print_binary(va_list args)(void);
 
 #endif /*MAIN_H*/

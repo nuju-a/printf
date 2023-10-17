@@ -19,6 +19,13 @@ int handle_printf(convert_t *identifier, va_list list)
 		case '%':
 			print_percent();
 			break;
+		case 'i':
+			print_int(args, int);
+			break;
+		default:
+			if (identifier == NULL || identifier == '\0' || identifier == ' ')
+				return (NULL);
+			break;
 	}
 
 	return (0);
