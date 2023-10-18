@@ -13,8 +13,12 @@ void handle_printf(int *count, char *format, va_list args)
 	int i = 0;
 
 	convert_t identifier[5] = {
-		{'c', print_char}, {'s', print_string}, {'d', print_int},
-		{'i', print_int}, {'u',  print_int}};
+		{'c', print_char},
+		{'s', print_string},
+		{'d', print_int},
+		{'i', print_int},
+		{'u',  print_int}
+	};
 
 	if (*str == 'c' || *str == 's' || *str == 'd' || *str == 'i' || *str == 'u')
 	{
