@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define UNUSED(x) (void)(x)
+/*#define UNUSED(x) (void)(x)*/
 /**
   *struct convert - a new type defining my format struct
   *
@@ -30,7 +30,7 @@ void handle_printf(int *, char *, va_list);
 int print_char(va_list args, char *);
 int print_string(va_list args, char *);
 int print_percent(va_list args);
-int print_binary(va_list args, char buffer[]);
+/*int print_binary(va_list args, char buffer[]);*/
 
 int print_int(va_list args, char *);
 void change_neg(unsigned int *pNum, int num);
